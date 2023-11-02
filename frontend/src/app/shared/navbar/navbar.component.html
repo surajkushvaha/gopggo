@@ -1,0 +1,42 @@
+<nav class="navbar  navbar-expand-lg navbar-inverse bs-dark bg-black">
+
+  <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+    <div class="user-account d-flex flex-row justify-content-center align-items-center" *ngIf="!isUserLogin">
+      <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" height="50px" alt="logo" />
+      <h2 class="text-white mb-0">GOPGGO</h2>
+    </div>
+    <ul class="nav navbar-nav" >
+      <li class="px-2" [ngClass]="item.items ? 'dropdown' : 'active'" *ngFor="let item of items">
+        <ng-template #disabledLink>
+          <a  [ngClass]=" item.items ? 'dropdown-toggle' : '' " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >{{item.label}} <span *ngIf="item.items" class="caret"></span> </a>
+        </ng-template>
+        <a *ngIf="item.routerLink; else disabledLink" [ngClass]=" item.items ? 'dropdown-toggle' : '' " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" [routerLink]="[item.routerLink]" routerLinkActive="router-link-active">{{item.label}} <span *ngIf="item.items" class="caret"></span> </a>
+        <ul *ngIf="item.items" class="dropdown-menu">
+            <li *ngFor="let item of item.items">
+              <a [routerLink]="[item.routerLink]">{{item.label}}</a>
+            </li>
+        </ul>
+      </li>
+
+    </ul>
+    <!-- <ng-template #brand> -->
+
+    <app-search *ngIf="isNotLanding;"></app-search>
+    <!-- </ng-template> -->
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        Account
+        <img src="http://placehold.it/150x150" class="img-circle" alt="Profile Image" />
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Inbox</a></li>
+          <li><a href="#">Followers</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,14 @@
+<div class="main-container bg-black">
+  <div class="left-panel" *ngIf="isUserLogin">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="right-panel">
+    <div class="top-panel"><app-navbar></app-navbar>
+    </div>
+    <div class="main-content-panel"  [ngClass]="isUserLogin? 'b-5' : 'b-0' ">
+      <div class="main">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

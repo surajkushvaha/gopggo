@@ -1,0 +1,27 @@
+<!-- <p>landing-page works!</p> -->
+<div class="main-container">
+  <div id="container">
+    <div class="card rounded p-5">
+      <h1>Find a home away from home
+      </h1>
+      <app-search></app-search>
+    </div>
+    <!-- <img src="https://media.istockphoto.com/id/479842074/photo/empty-road-at-building-exterior.jpg?s=2048x2048&w=is&k=20&c=ITL_F7hIJz-fXiLiJRcgrC_OguBbbTXfG-cIdUid8VU=" class="d-block w-100" alt="..."> -->
+  </div>
+  <div class="container" #containerWithCruosel>
+    <div id="slider-container">
+      <span (click)="slideRight()" class="btn"></span>
+      <div id="slider" #slider>
+        <div class="slide" *ngFor="let item of list">
+          <div class="card card-image" [ngStyle]="{'background': 'url(' + fileServer+'img/'+item.image + ')'}">
+            <div class="card-body">
+              <h5 class="card-title">{{item.title}}</h5>
+              <a (click)="onClick(item.action)" class="">Explore Now <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span (click)="slideLeft()" class="btn"></span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+.main-container {
+  display: flex;
+  /* height: 100vh; */
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.main-content-panel {
+  flex: 1;
+  background-color: #ccc; /* Adjust the color as needed */
+  border-top-left-radius: 30px;
+  border-top: 10px rgb(114, 155, 250) solid;
+  border-left: 10px solid rgb(114, 139, 250);
+  overflow: hidden;
+
+}
+
+.main{
+  overflow-y: scroll;
+  height: calc(100vh - 70px);
+}
